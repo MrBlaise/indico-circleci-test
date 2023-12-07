@@ -15,7 +15,7 @@ jobs:
         - v1-pip-{{ arch }}-{{ .Branch }}-
         - v1-pip-{{ arch }}-
     - run: |
-        apt-get update && apt-get install -y libpq-dev - already installed
+        sudo apt-get update && sudo apt-get install -y libpq-dev - already installed
 
         python -m venv .venv
         source .venv/bin/activate
