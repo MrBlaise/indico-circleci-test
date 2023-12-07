@@ -11,9 +11,9 @@ jobs:
         keys:
         # Find a cache corresponding to this specific package-lock.json checksum
         # when this file is changed, this key will fail
-        - &pip-key v1-pip-{{ arch }}-{{ .Branch }}-{{ checksum "requirements*.txt" }}
-        - v1-gomodcache-{{ arch }}-{{ .Branch }}-
-        - v1-gomodcache-{{ arch }}-
+        - &pip-key v1-pip-{{ arch }}-{{ .Branch }}-{{ checksum "requirements.txt" }}
+        - v1-pip-{{ arch }}-{{ .Branch }}-
+        - v1-pip-{{ arch }}-
     - run: |
         apt-get update && apt-get install -y libpq-dev - already installed
 
