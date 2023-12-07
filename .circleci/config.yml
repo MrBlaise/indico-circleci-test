@@ -11,9 +11,9 @@ jobs:
         keys:
         # Find a cache corresponding to this specific package-lock.json checksum
         # when this file is changed, this key will fail
-        - &pip-key v2-pip-{{ arch }}-{{ .Branch }}-{{ checksum "requirements.txt" }}
-        - v2-pip-{{ arch }}-{{ .Branch }}-
-        - v2-pip-{{ arch }}-
+        - &pip-key v3-pip-{{ arch }}-{{ .Branch }}-{{ checksum "requirements.txt" }}
+        - v3-pip-{{ arch }}-{{ .Branch }}-
+        - v3-pip-{{ arch }}-
     - run: |
         sudo apt-get update && sudo apt-get install -y libpq-dev
 
@@ -31,5 +31,5 @@ jobs:
         name: Save Python Cache
         key: *pip-key
         paths:
-        - ./.venv
+        - /home/circleci/.cache/pip
 
